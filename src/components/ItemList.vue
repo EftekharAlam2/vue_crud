@@ -10,6 +10,14 @@
         </div>
       </li>
     </ul>
+
+    <div class="mt-4">
+      <h2>Add New Item</h2>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Enter item name" v-model="newItemName">
+      </div>
+      <button class="btn btn-success mt-1" @click="addItem">Add Item</button>
+    </div>
   </div>
 </template>
 
@@ -19,7 +27,8 @@ import { items } from '../data/items.js';
 export default {
   data() {
     return {
-      items: items
+      items: items,
+      newItemName: '' 
     };
   },
   methods: {
@@ -28,6 +37,16 @@ export default {
     },
     deleteItem(itemId) {
       this.items = this.items.filter(item => item.id !== itemId);
+    },
+    addItem() {
+      if (this.newItemName !== '') { 
+        const newItem = { 
+          id: this.items.length + 1, 
+          name: this.newItemName 
+        };
+        this.items.push(newItem); 
+        this.newItemName = ''; 
+      }
     }
   }
 };

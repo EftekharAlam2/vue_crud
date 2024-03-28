@@ -18,7 +18,7 @@ import { items } from '../data/items.js';
 export default {
   data() {
     return {
-      editedItem: {} // Initialize as an empty object
+      editedItem: {}
     };
   },
   mounted() {
@@ -39,5 +39,5 @@ export default {
 </script>
 
 <style scoped>
-/* Add your custom styles here */
+
 </style>
